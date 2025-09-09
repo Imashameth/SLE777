@@ -1,0 +1,64 @@
+---
+title: "Plant Growth"
+author: "Imasha"
+date: "2025-09-09"
+output: html_document
+---
+# Introduction
+
+The PlantGrowth dataset contains data from an experiment that measured the dry weight of plants under different conditions. The plants were divided into three groups: a control group with no treatment, and two treatment groups labeled trt1 and trt2. This analysis explores how plant weight differs across these groups using basic summary statistics and visualizations.
+
+# Results
+```{r}
+head(PlantGrowth)
+```
+
+```{r}
+str(PlantGrowth)
+```
+
+```{r}
+mean(subset(PlantGrowth, group == "ctrl")$weight)
+```
+
+```{r}
+mean(subset(PlantGrowth, group == "trt1")$weight)
+```
+
+```{r}
+mean(subset(PlantGrowth, group == "trt2")$weight)
+```
+
+```{r}
+median(subset(PlantGrowth, group == "ctrl")$weight)
+median(subset(PlantGrowth, group == "trt1")$weight)
+median(subset(PlantGrowth, group == "trt1")$weight)
+```
+
+```{r}
+boxplot(weight ~ group,
+        data = PlantGrowth,
+        main = "Plant Weight by Treatment Group",
+        xlab = "Group",
+        ylab = "Weight",
+        col = c("lightblue", "lightgreen", "lightpink"),
+        border = "darkgray")
+```
+
+# Conclusion
+
+The analysis suggests that the second treatment (trt2) may have had a positive effect on plant growth, as indicated by the higher average weight compared to the control and trt1 groups. While these results are promising, further statistical testing would be needed to confirm whether the differences are significant.
+
+```{r}
+sessionInfo()
+```
+
+
+
+
+
+
+
+
+
+
